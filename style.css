@@ -18,6 +18,7 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
 }
 
 h1 {
@@ -25,11 +26,40 @@ h1 {
     margin-bottom: 50px;
 }
 
+
+.display {
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    width: 70vw;
+    margin-bottom: 1.5vw;
+    text-align: right;
+    padding: 25px;
+
+}
+
+.history {
+    padding: 25px;
+    font-size: 1.5rem;
+    padding-bottom: 5px;
+    background-color: var(--deep-champagne);
+
+}
+
+.current-calc {
+    font-size: 3rem;
+    padding-right: 25px;
+    background-color: var(--deep-champagne);
+    font-weight: 100;
+
+}
+
+
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    /* max-width: 600px; */
-    gap:10px;
+    /* width: 6300px; */
+    gap: 1vw;
 
 }
 
@@ -38,8 +68,8 @@ h1 {
     /* height: 6rem; */
     /* padding: 0 auto; */
     padding: 2rem 4rem;
-    width: 10rem;
-    transition: ease-out 150ms;
+    width: 10vw;
+    transition: ease-out 120ms;
     text-align: center;
 
 }
@@ -60,17 +90,8 @@ h1 {
     justify-self: center;
     background-color: rgb(213, 221, 168);
     /* height: 3rem; */
-    
-}
 
-/* .backspace svg {
-    fill: var(--terra-cotta);
-    size: 1.7rem;
-    align-self: center;
-    justify-content: center;
-    padding: 0;
-    height: 30px;
-}  */
+}
 
 .operator:hover {
     background-color: var(--eggshell);
@@ -90,13 +111,14 @@ h1 {
 }
 
 
-
-
-
-
-.multiply,
-.minus,
-.plus,
-.equal {
-    /* padding-top: ; */
+.btn.equal {
+background-color: var(--terra-cotta);
+color: white;
+opacity: 0.7;
 }
+
+.btn.equal:active {
+    font-size: larger;
+    opacity: 1;
+}
+
