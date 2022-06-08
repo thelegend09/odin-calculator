@@ -4,6 +4,7 @@
     --independence: #3d405bff;
     --green-sheen: #81b29aff;
     --deep-champagne: #f2cc8fff;
+    --deep-champagne-pale: #fdf6eaff;
 }
 
 body {
@@ -18,23 +19,21 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
+    height: 98vh;
 }
 
 h1 {
     font-weight: 100;
-    margin-bottom: 50px;
+    
 }
 
 
 .display {
-    display: flex;
-    flex-direction: column;
-    height: 10vh;
-    width: 70vw;
-    margin-bottom: 1.5vw;
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 5;
     text-align: right;
-    padding: 25px;
+    background-color: var(--deep-champagne-pale);
 
 }
 
@@ -42,14 +41,15 @@ h1 {
     padding: 25px;
     font-size: 1.5rem;
     padding-bottom: 5px;
-    background-color: var(--deep-champagne);
+    font-weight: 600;
+    color: var(--terra-cotta);
+    letter-spacing: 1px;
 
 }
 
 .current-calc {
     font-size: 3rem;
     padding-right: 25px;
-    background-color: var(--deep-champagne);
     font-weight: 100;
 
 }
@@ -60,6 +60,8 @@ h1 {
     grid-template-columns: repeat(4, 1fr);
     /* width: 6300px; */
     gap: 1vw;
+    padding: 25px;
+    /* height: 80vh; */
 
 }
 
@@ -80,7 +82,7 @@ h1 {
 }
 
 .digit:active {
-    font-size: 1.8rem;
+    font-weight: 800;
 }
 
 .operator {
@@ -89,7 +91,6 @@ h1 {
     align-self: center;
     justify-self: center;
     background-color: rgb(213, 221, 168);
-    /* height: 3rem; */
 
 }
 

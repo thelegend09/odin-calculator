@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
@@ -18,13 +18,15 @@
 </head>
 
 <body>
-    <h1>Calculator</h1>
-    <div class="display">
-        <div class="history">98+95-8+</div>
-        <div class="current-calc">=<span class="current-answer">235</span></div>
-    </div>
-    <div class="container">
 
+
+    <h1>Calculator</h1>
+
+    <div class="container">
+        <div class="display">
+            <div class="history">98+95-8+</div>
+            <div class="current-calc">=<span class="current-answer"></span></div>
+        </div>
         <!-- first row -->
         <div class="btn operator clear">C</div>
         <div class="btn operator backspace">
