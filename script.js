@@ -1,23 +1,37 @@
 // buttons for digits
 const btnDigits = Array.from(document.querySelectorAll(".digit"))
-
 let currentNumber = ""
 
 
-for (let i = 0; i < nodeList.length; i++) {
-    nodeList[i].addEventListener("click", () => {
+for (let i = 0; i < btnDigits.length; i++) {
+    btnDigits[i].addEventListener("click", () => {
         // When you click on a digit, that digit is added to the currentNumber
-        currentNumber += nodeList[i].textContent
+        currentNumber += btnDigits[i].textContent;
         // the display is updated with the new number
-        displayCurrent.textContent = currentNumber
+        updateDisplay();
     })
 };
 
-
-
 const btnPeriod = document.querySelector(".period");
 
+btnPeriod.addEventListener("click", () => {
+    // makes sure there's no more than one period in currentNumber
+    if (!(currentNumber.includes("."))) {
+        currentNumber += btnPeriod.textContent;
+        updateDisplay();
+    }
+
+});
+
 // buttons for operators
+const btnOperators = Array.from(document.querySelectorAll(".operator"))
+
+for (let i = 0; i < btnOperators.length; i++) {
+    btnOperators[i].addEventListener("click", () => {
+
+    })
+};
+
 const btnPlus = document.querySelector(".plus");
 const btnMinus = document.querySelector(".minus");
 const btnMultiply = document.querySelector(".multiply");
@@ -34,7 +48,10 @@ const displaySection = document.querySelector(".display");
 const displayHistory = document.querySelector(".history");
 const displayCurrent = document.querySelector(".current-answer");
 
-
+// Update display with new currenNumber
+function updateDisplay() {
+    displayCurrent.textContent = currentNumber;
+}
 
 
 // main operation factory
