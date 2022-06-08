@@ -40,6 +40,7 @@ h1 {
 .history {
     padding: 25px;
     font-size: 1.5rem;
+    height: 1.5rem;
     padding-bottom: 5px;
     font-weight: 600;
     color: var(--terra-cotta);
@@ -49,6 +50,7 @@ h1 {
 
 .current-calc {
     font-size: 3rem;
+    height: 4rem;
     padding-right: 25px;
     font-weight: 100;
 

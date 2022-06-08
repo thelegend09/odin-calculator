@@ -4,6 +4,7 @@ let previousNumber = ""
 let operator = ""
 let operatorDisplay = ""
 let history = ""
+let answer = ""
 
 
 // buttons for digits
@@ -34,7 +35,14 @@ const btnOperators = Array.from(document.querySelectorAll(".operator"))
 
 for (let i = 0; i < btnOperators.length; i++) {
     btnOperators[i].addEventListener("click", () => {
-        previousNumber = Number(currentNumber);
+        if (answer !== "") {
+            previousNumber = answer
+            displayHistory.textContent = answer
+        }
+        else {
+            previousNumber = Number(currentNumber);
+
+        }
         currentNumber = "";
         operator = btnOperators[i].id;
         operatorDisplay = btnOperators[i].textContent;
@@ -50,21 +58,29 @@ for (let i = 0; i < btnOperators.length; i++) {
 const btnEqual = document.querySelector(".equal");
 btnEqual.addEventListener("click", () => {
     // alert("Previous number is " + String(previousNumber) + ". Current number is " + String(currentNumber));
-    displayCurrent.textContent = "=" + String(operate(operator, previousNumber, Number(currentNumber)))
+    answer = operate(operator, previousNumber, Number(currentNumber))
+    displayCurrent.textContent = "=" + String(answer)
+    displayHistory.textContent = previousNumber + operatorDisplay + currentNumber
 
 });
 
 // other buttons
 const btnPlusMinus = document.querySelector(".plus-minus");
+
 const btnBackspace = document.querySelector(".backspace");
+
+// clear button
 const btnClear = document.querySelector(".clear");
 
 btnClear.addEventListener("click", () => {
-    let currentNumber = ""
-    let previousNumber = ""
-    let operator = ""
-    let operatorDisplay = ""
-    let history = ""
+    currentNumber = ""
+    previousNumber = ""
+    operator = ""
+    operatorDisplay = ""
+    history = ""
+    answer = ""
+    displayCurrent.textContent = ""
+    displayHistory.textContent = ""
 });
 
 // displays
@@ -75,10 +91,11 @@ const displayCurrent = document.querySelector(".current-answer");
 // Update display with new currenNumber
 function updateDisplay() {
     if (operatorDisplay !== "") {
-        displayCurrent.textContent = previousNumber + operatorDisplay
-    }
-    displayCurrent.textContent = currentNumber;
-}
+        displayCurrent.textContent = previousNumber + operatorDisplay + currentNumber
+    } else {
+        displayCurrent.textContent = currentNumber;
+    };
+};
 
 
 // main operation factory
