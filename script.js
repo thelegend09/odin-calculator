@@ -1,16 +1,16 @@
 // buttons for digits
-// const btnDigits = Array.from(document.querySelectorAll(".digit"))
-// btnDigits.forEach(digit => digit.addEventListener("click", () => {
-//     alert("hey")
-// }));
+const btnDigits = Array.from(document.querySelectorAll(".digit"))
 
-const nodeList = document.querySelectorAll(".digit");
+let currentNumber = ""
+
+
 for (let i = 0; i < nodeList.length; i++) {
-  nodeList[i].addEventListener("click", () => {
-    let classNames = nodeList[i].className
-    let allNumbers = 
-    
-    if (nodeList[i].classList.contains(x)) 
+    nodeList[i].addEventListener("click", () => {
+        // When you click on a digit, that digit is added to the currentNumber
+        currentNumber += nodeList[i].textContent
+        // the display is updated with the new number
+        displayCurrent.textContent = currentNumber
+    })
 };
 
 
