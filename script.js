@@ -1,7 +1,13 @@
+// initialize numbers
+let currentNumber = ""
+let previousNumber = ""
+let operator = ""
+let operatorDisplay = ""
+let history = ""
+
+
 // buttons for digits
 const btnDigits = Array.from(document.querySelectorAll(".digit"))
-let currentNumber = ""
-
 
 for (let i = 0; i < btnDigits.length; i++) {
     btnDigits[i].addEventListener("click", () => {
@@ -12,6 +18,7 @@ for (let i = 0; i < btnDigits.length; i++) {
     })
 };
 
+// button for period (.)
 const btnPeriod = document.querySelector(".period");
 
 btnPeriod.addEventListener("click", () => {
@@ -20,7 +27,6 @@ btnPeriod.addEventListener("click", () => {
         currentNumber += btnPeriod.textContent;
         updateDisplay();
     }
-
 });
 
 // buttons for operators
@@ -28,20 +34,38 @@ const btnOperators = Array.from(document.querySelectorAll(".operator"))
 
 for (let i = 0; i < btnOperators.length; i++) {
     btnOperators[i].addEventListener("click", () => {
-
-    })
+        previousNumber = Number(currentNumber);
+        currentNumber = "";
+        operator = btnOperators[i].id;
+        operatorDisplay = btnOperators[i].textContent;
+        updateDisplay()
+    });
 };
 
-const btnPlus = document.querySelector(".plus");
-const btnMinus = document.querySelector(".minus");
-const btnMultiply = document.querySelector(".multiply");
-const btnDivide = document.querySelector(".divide");
+// const btnPlus = document.querySelector(".plus");
+// const btnMinus = document.querySelector(".minus");
+// const btnMultiply = document.querySelector(".multiply");
+// const btnDivide = document.querySelector(".divide");
+
 const btnEqual = document.querySelector(".equal");
+btnEqual.addEventListener("click", () => {
+    // alert("Previous number is " + String(previousNumber) + ". Current number is " + String(currentNumber));
+    displayCurrent.textContent = "=" + String(operate(operator, previousNumber, Number(currentNumber)))
+
+});
 
 // other buttons
 const btnPlusMinus = document.querySelector(".plus-minus");
 const btnBackspace = document.querySelector(".backspace");
 const btnClear = document.querySelector(".clear");
+
+btnClear.addEventListener("click", () => {
+    let currentNumber = ""
+    let previousNumber = ""
+    let operator = ""
+    let operatorDisplay = ""
+    let history = ""
+});
 
 // displays
 const displaySection = document.querySelector(".display");
@@ -50,6 +74,9 @@ const displayCurrent = document.querySelector(".current-answer");
 
 // Update display with new currenNumber
 function updateDisplay() {
+    if (operatorDisplay !== "") {
+        displayCurrent.textContent = previousNumber + operatorDisplay
+    }
     displayCurrent.textContent = currentNumber;
 }
 
@@ -70,7 +97,7 @@ function operate(operation, firstNumber, SecondNumber) {
             break;
 
         case "division":
-            result = afirstNumber / SecondNumber;
+            result = firstNumber / SecondNumber;
             break;
     }
 
